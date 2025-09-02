@@ -17,7 +17,7 @@
 
                 <div class="game-info">
                     <div>Intentos restantes: <span id="intentos">6</span></div>
-                    <div>Pista: <span id="pista">Presiona INICIAR para comenzar</span></div>
+                    <div>Pista: <span id="pista">Presiona el boton de Iniciar para comenzar</span></div>
                 </div>
 
                 <div class="word-display" id="palabra">_ _ _ _ _ _ _ _</div>
@@ -58,8 +58,9 @@
                 </div>
 
                 <div>
-                    <button class="btn-secondary" onclick="iniciarJuego()" id="btnIniciar">INICIAR</button>
-                    <button class="btn-secondary" onclick="reiniciarJuego()" id="btnReiniciar">REINICIAR</button>
+                    <button class="btn-secondary" onclick="iniciarJuego()" id="btnIniciar">iniciar</button>
+                    <button class="btn-secondary" onclick="reiniciarJuego()" id="btnReiniciar">reiniciar</button>
+                    <button class="btn-secondary" onclick="pararCronometro()" id="btnParar">Parar Cronometro</button>
                 </div>
 
                 <div class="used-letters">
@@ -70,7 +71,7 @@
                 <div class="message" id="mensaje"></div>
             </div>
             <div class="ImagenReferencia">
-                <h2>Imagen de Referencia</h2>
+                <h2>Ahorcado</h2>
                 <p>No dejes que muera! HJWKQKJHKSJ</p>
                 <img src="img/ahorcado.png" alt="Imagen de referencia">
             </div>
