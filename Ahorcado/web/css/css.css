@@ -12,11 +12,8 @@ body {
     justify-content: center;
     align-items: center;
     color: white;
-<<<<<<< HEAD
     overflow: hidden; 
-=======
     overflow: hidden;
->>>>>>> 6043e6cb00f78e8473fa01546ff307c22cc6d1cc
 }
 
 .game-wrapper {
@@ -172,31 +169,23 @@ h1 {
     background: rgba(33, 150, 243, 0.8);
 }
 
-<<<<<<< HEAD
-=======
-/* Sección de la imagen de referencia */
->>>>>>> 6043e6cb00f78e8473fa01546ff307c22cc6d1cc
+
+
 .ImagenReferencia {
     text-align: center;
     padding: 30px;
     background: rgba(255, 255, 255, 0.05);
     border-radius: 15px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-<<<<<<< HEAD
     flex-grow: 1; 
-=======
-    flex-grow: 1; /* Esto hace que el contenedor de la imagen crezca igual que el del juego */
->>>>>>> 6043e6cb00f78e8473fa01546ff307c22cc6d1cc
+    flex-grow: 1; 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-<<<<<<< HEAD
     min-height: 600px; 
-=======
-    min-height: 600px; /* Mismo valor que el contenedor del juego para igualar la altura */
->>>>>>> 6043e6cb00f78e8473fa01546ff307c22cc6d1cc
+    min-height: 600px; 
 }
 
 .ImagenReferencia:hover {
@@ -244,19 +233,12 @@ h1 {
     text-transform: uppercase;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-<<<<<<< HEAD
-=======
-    /* Posicionamiento para efectos con pseudo-elementos */
->>>>>>> 6043e6cb00f78e8473fa01546ff307c22cc6d1cc
     position: relative;
     overflow: hidden;
     z-index: 1;
 }
 
-<<<<<<< HEAD
-=======
-/* Estado de hover y active para todos los botones */
->>>>>>> 6043e6cb00f78e8473fa01546ff307c22cc6d1cc
+
 .btn-secondary:hover {
     transform: scale(1.08);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
@@ -279,11 +261,8 @@ h1 {
         width: 100%;
         margin: 0;
         margin-bottom: 20px;
-<<<<<<< HEAD
         min-height: initial; 
-=======
-        min-height: initial; /* Resetea la altura mínima en móviles para un mejor flujo */
->>>>>>> 6043e6cb00f78e8473fa01546ff307c22cc6d1cc
+
     }
 
     h1 {
@@ -311,11 +290,8 @@ h1 {
         order: -1;
         margin-bottom: 30px;
     }
-<<<<<<< HEAD
     .container {
         order: -1;
         margin-bottom: 30px;
     }
-=======
->>>>>>> 6043e6cb00f78e8473fa01546ff307c22cc6d1cc
 }
