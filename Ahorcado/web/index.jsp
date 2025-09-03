@@ -60,6 +60,10 @@
                 <div>
                     <button class="btn-secondary" onclick="iniciarJuego()" id="btnIniciar">iniciar</button>
                     <button class="btn-secondary" onclick="reiniciarJuego()" id="btnReiniciar">reiniciar</button>
+<<<<<<< HEAD
+=======
+                    <button class="btn-secondary" onclick="pararCronometro()" id="btnParar">Parar Cronometro</button>
+>>>>>>> 6043e6cb00f78e8473fa01546ff307c22cc6d1cc
                 </div>
 
                 <div class="used-letters">
