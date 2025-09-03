@@ -16,18 +16,19 @@ public class UsuarioDAO {
     ResultSet rs;
     int resp;
 
-    public Usuario validar(String emailEmpleado, String telefonoEmpleado) {
-        Usuario empleado = new Usuario();
-        String sql = "SELECT * FROM Empleados WHERE emailEmpleado = ? AND telefonoEmpleado = ?";
+    public Usuario validar(String nombre, String pass) {
+        Usuario user = new Usuario();
+        String sql = "SELECT * FROM Usuarios WHERE nombre = ? AND pass = ?";
         try {
             con = cn.Conexion();
             ps = con.prepareStatement(sql);
-            ps.setString(1, emailEmpleado);
-            ps.setString(2, telefonoEmpleado);
+            ps.setString(1, nombre);
+            ps.setString(2, pass);
             rs = ps.executeQuery();
             while (rs.next()) {
-                empleado.setCodigoEmpleado(rs.getInt("codigoEmpleado"));
-                empleado.setNombreEmpleado(rs.getString("nombreEmpleado"));
+                user.setCodigoUsuario(rs.getInt("codigoUsuario"));
+                user.setNombre(rs.getString("nombre"));
+                user.setPass(rs.getString("pass"));
 
             }
         } catch (Exception e) {
@@ -42,6 +43,6 @@ public class UsuarioDAO {
                 e.printStackTrace();
             }
         }
-        return empleado;
+        return user;
     }
 }

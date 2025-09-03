@@ -75,7 +75,10 @@
                 <img src="img/ahorcado.png" alt="Imagen de referencia">
             </div>
         </div>
-
+        <div> 
+            <a href="Controlador?menu=Palabras" class="btn-secondary">Palabras</a>
+            </div>
+        
         <script src="js/index.js"></script>
     </body>
 </html>

@@ -11,19 +11,19 @@
             <div class="card">
                 <div class="card-header">
                     <h1>Bienvenido al Ahorcado</h1>
-                    <p>Inicia sesión para comenzar el juego.</p>
+                    <p>Inicia sesión para comenzar el juego</p>
                 </div>
                 <div class="card-body">
-                    <form action="principal.jsp" method="post">
+                    <form action="Validar" method="post">
                         <div class="form-group">
                             <label for="username">Nombre de usuario</label>
-                            <input type="text" id="username" name="username" required>
+                            <input type="text" id="username" name="txtNombre" required>
                         </div>
                         <div class="form-group">
-                            <label for="password">Contraseña</label>
-                            <input type="password" id="password" name="password" required>
+                            <label for="pass">Contraseña</label>
+                            <input type="password" id="pass" name="txtPass" required>
                         </div>
-                        <button type="submit" class="btn-start">Entrar</button>
+                        <button type="submit" name="btnIngresar" value="Ingresar" class="btn-start">Entrar</button>
                     </form>
                     <p class="signup-text">¿No tienes cuenta? <a href="#">Regístrate</a></p>
                 </div>

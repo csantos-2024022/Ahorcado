@@ -1,0 +1,127 @@
+/* Paleta de colores:
+   - Morado oscuro principal: #3a1e50
+   - Morado medio/grisáceo: #5d4a70
+   - Morado claro: #c3b1d1
+   - Morado muy claro (casi blanco): #f0e6f5
+   - Acento brillante: #8e44ad (para botones y enlaces)
+*/
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0e6f5; /* Fondo muy claro */
+    color: #3a1e50; /* Texto principal morado oscuro */
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+h1, h2 {
+    color: #5d4a70; /* Títulos con un tono más suave */
+    text-align: center;
+}
+
+/* Contenedor principal para centrar el contenido */
+.container {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 800px;
+    box-sizing: border-box;
+}
+
+/* Estilos del formulario de agregar palabra */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #c3b1d1; /* Fondo del formulario con morado claro */
+    border-radius: 8px;
+}
+
+label {
+    font-weight: bold;
+    color: #3a1e50;
+}
+
+input[type="text"] {
+    padding: 10px;
+    border: 1px solid #5d4a70;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #f0e6f5;
+    color: #3a1e50;
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: #8e44ad;
+    box-shadow: 0 0 5px rgba(142, 68, 173, 0.5);
+}
+
+button[type="submit"] {
+    background-color: #8e44ad; /* Botón con color de acento */
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #6c3483;
+    transform: translateY(-2px);
+}
+
+/* Estilos de la tabla de palabras */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+th, td {
+    border: 1px solid #c3b1d1; /* Borde de tabla con color morado claro */
+    padding: 12px;
+    text-align: left;
+    font-size: 15px;
+}
+
+th {
+    background-color: #5d4a70;
+    color: white;
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background-color: #f0e6f5; /* Rayas de cebra para mejor legibilidad */
+}
+
+tr:hover {
+    background-color: #e6dceb;
+}
+
+/* Estilos del enlace para volver */
+a {
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #8e44ad;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #6c3483;
+}
