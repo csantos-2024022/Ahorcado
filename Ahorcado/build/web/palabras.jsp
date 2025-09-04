@@ -15,6 +15,8 @@
             <label for="txtPalabra">Palabra:</label>
             <input type="text" id="txtPalabra" name="txtPalabra" required>
             <button type="submit">Agregar</button>
+            <label for="txtPista">Pista</label>
+            <input type="text" id="txtPista" name="txtPista" required>
         </form>
         
         <hr>
@@ -25,6 +27,7 @@
                 <tr>
                     <th>Código</th>
                     <th>Palabra</th>
+                    <th>pista</th>
                 </tr>
             </thead>
             <tbody>
@@ -32,6 +35,7 @@
                     <tr>
                         <td>${p.getCodigoPalabra()}</td>
                         <td>${p.getPalabra()}</td>
+                        <td>${p.getPista()}</td>
                     </tr>
                 </c:forEach>
             </tbody>

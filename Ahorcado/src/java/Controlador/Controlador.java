@@ -18,31 +18,28 @@ public class Controlador extends HttpServlet {
         String menu = request.getParameter("menu");
         String accion = request.getParameter("accion");
         
-        // --- INICIO DE LA CORRECCIÓN ---
-        // Si el menú es nulo, redirige a la página principal y no hagas nada más.
         if (menu == null) {
             request.getRequestDispatcher("principal.jsp").forward(request, response);
-            return; // Detiene la ejecución del método
+            return; 
         }
-        // --- FIN DE LA CORRECCIÓN ---
         
         if (menu.equalsIgnoreCase("Principal")) {
             request.getRequestDispatcher("principal.jsp").forward(request, response);
         }
         
         if (menu.equalsIgnoreCase("Palabras")) {
-            // El 'switch' para la acción debe estar dentro del 'if' del menú 'Palabras'
             if (accion != null) {
                 switch (accion) {
                     case "Agregar":
                         String palabraTexto = request.getParameter("txtPalabra");
+                        String PistaTexto = request.getParameter("txtPista");
                         palabra p = new palabra();
                         p.setPalabra(palabraTexto);
+                        p.setPista(PistaTexto);
                         pdao.agregar(p);
                         break;
                 }
             }
-            // Después de cualquier acción (incluyendo ninguna), lista y muestra la tabla
             List<palabra> lista = pdao.listar();
             request.setAttribute("listaPalabras", lista);
             request.getRequestDispatcher("palabras.jsp").forward(request, response);

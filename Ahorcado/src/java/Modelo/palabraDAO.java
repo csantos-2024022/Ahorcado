@@ -25,6 +25,7 @@ public class palabraDAO {
                 palabra p = new palabra();
                 p.setCodigoPalabra(rs.getInt("codigoPalabra"));
                 p.setPalabra(rs.getString("palabra"));
+                p.setPista(rs.getString("pista"));
                 listaPalabras.add(p);
             }
         } catch (Exception e) {
@@ -34,11 +35,12 @@ public class palabraDAO {
     }
 
     public void agregar(palabra palabra) {
-        String sql = "INSERT INTO Palabras (palabra) VALUES (?)";
+        String sql = "call spInsertarPalabras(?, ?)";
         try {
             con = cn.Conexion();
             ps = con.prepareStatement(sql);
             ps.setString(1, palabra.getPalabra());
+            ps.setString(2, palabra.getPista());
             ps.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
