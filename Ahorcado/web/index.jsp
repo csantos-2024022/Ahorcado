@@ -4,7 +4,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Ahorcado - Iniciar sesión</title>
-        <link rel="stylesheet" href="css/login.css">
+        <link rel="stylesheet" href="css/inicio.css">
     </head>
     <body>
         <div class="login-container">
@@ -25,7 +25,6 @@
                         </div>
                         <button type="submit" name="btnIngresar" value="Ingresar" class="btn-start">Entrar</button>
                     </form>
-                    <p class="signup-text">¿No tienes cuenta? <a href="#">Regístrate</a></p>
                 </div>
             </div>
         </div>
