@@ -25,7 +25,7 @@
         <table>
             <thead>
                 <tr>
-                    <th>Código</th>
+                    <th>codigo</th>
                     <th>Palabra</th>
                     <th>pista</th>
                 </tr>
