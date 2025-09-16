@@ -1,0 +1,48 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package Modelo;
+
+import Config.Conexion;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+public class UsuarioDAO {
+    Conexion cn = new Conexion();
+    Connection con;
+    PreparedStatement ps;
+    ResultSet rs;
+    int resp;
+
+    public Usuario validar(String nombre, String pass) {
+        Usuario user = new Usuario();
+        String sql = "SELECT * FROM Usuarios WHERE nombre = ? AND pass = ?";
+        try {
+            con = cn.Conexion();
+            ps = con.prepareStatement(sql);
+            ps.setString(1, nombre);
+            ps.setString(2, pass);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                user.setCodigoUsuario(rs.getInt("codigoUsuario"));
+                user.setNombre(rs.getString("nombre"));
+                user.setPass(rs.getString("pass"));
+
+            }
+        } catch (Exception e) {
+            System.out.println("El usuario o contraseña son incorrectos");
+            e.printStackTrace();
+        } finally {
+            try {
+                if (rs != null) rs.close();
+                if (ps != null) ps.close();
+                if (con != null) con.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return user;
+    }
+}
