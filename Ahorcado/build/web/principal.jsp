@@ -60,6 +60,8 @@
                 <div>
                     <button class="btn-secondary" onclick="iniciarJuego()" id="btnIniciar">iniciar</button>
                     <button class="btn-secondary" onclick="reiniciarJuego()" id="btnReiniciar">reiniciar</button>
+                    <button class="btn-secondary" onclick="togglePausa()" id="btnReanudar">Reanudar</button>
+                    <button class="btn-secondary" onclick="pararCronometro()" id="btnReiniciar">Detener</button>
                 </div>
 
                 <div class="used-letters">
@@ -74,6 +76,15 @@
                 <p>No dejes que muera! HJWKQKJHKSJ</p>
                 <img src="img/ahorcado.png" alt="Imagen de referencia">
             </div>
+            <div id="modal-resultado" class="modal-overlay">
+             <div class="modal">
+        <span class="close-button">&times;</span>
+        <div class="modal-content">
+            <h2 id="modal-titulo"></h2>
+            <p id="modal-mensaje"></p>
+                 </div>
+    </div>
+</div>
         </div>
         <div> 
             </div>

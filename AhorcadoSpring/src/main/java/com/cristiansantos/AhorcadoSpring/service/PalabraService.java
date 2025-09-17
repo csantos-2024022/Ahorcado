@@ -6,8 +6,8 @@ import java.util.Optional;
 
 public interface PalabraService {
     List<Palabra> getAllPalabras();
-    Optional<Palabra> getPalabraByCodigo(Integer codigoPalabra);
+    Optional<Palabra> getPalabraByCodigo(Long codigoPalabra);
     Palabra savePalabra(Palabra palabra);
-    Palabra updatePalabra(Integer codigoPalabra, Palabra palabra);
-    void deletePalabra(Integer codigoPalabra);
+    Palabra updatePalabra(Long codigoPalabra, Palabra palabra);
+    boolean deletePalabra(Long codigoPalabra);
 }

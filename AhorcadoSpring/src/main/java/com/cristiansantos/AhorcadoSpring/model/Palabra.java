@@ -1,36 +1,35 @@
 package com.cristiansantos.AhorcadoSpring.model;
 
-
 import jakarta.persistence.*;
 
 @Entity
 @Table(name = "palabras")
 public class Palabra {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer codigoPalabra;
+    private Long codigoPalabra;
 
-    @Column(name = "palabra")
+    @Column(name = "palabra", nullable = false, unique = true)
     private String palabra;
 
-    @Column(name = "pista")
+    @Column(name = "pista", nullable = false)
     private String pista;
-
 
     public Palabra() {
     }
 
-    public Palabra(Integer codigo_Usuario, String palabra, String pista) {
-        this.codigoPalabra = codigo_Usuario;
+    public Palabra(String palabra, String pista) {
         this.palabra = palabra;
         this.pista = pista;
     }
 
-    public Integer getCodigoPalabra() {
+    // Getters y Setters
+    public Long getCodigoPalabra() {
         return codigoPalabra;
     }
 
-    public void setCodigoPalabra(Integer codigoPalabra) {
+    public void setCodigoPalabra(Long codigoPalabra) {
         this.codigoPalabra = codigoPalabra;
     }
 
