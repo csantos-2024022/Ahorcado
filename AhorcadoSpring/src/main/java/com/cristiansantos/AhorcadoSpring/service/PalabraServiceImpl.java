@@ -38,13 +38,14 @@ public class PalabraServiceImpl implements PalabraService {
             return null;
         }
 
-        if (validacionPalabra.palabraNoExiste(palabra.getPalabra())) {
-            palabra.setPalabra(palabra.getPalabra().toUpperCase());
-            return palabraRepository.save(palabra);
-        } else {
+        // Verifica si la palabra ya existe antes de guardarla
+        if (!validacionPalabra.palabraNoExiste(palabra.getPalabra())) {
             System.out.println("Error: La palabra '" + palabra.getPalabra() + "' ya existe.");
-            return null;
+            return null; // Devuelve null si la palabra ya existe
         }
+
+        palabra.setPalabra(palabra.getPalabra().toUpperCase());
+        return palabraRepository.save(palabra);
     }
 
     @Override

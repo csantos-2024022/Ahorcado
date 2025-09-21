@@ -1,4 +1,5 @@
 package com.cristiansantos.AhorcadoSpring.Controller;
+
 import com.cristiansantos.AhorcadoSpring.model.Palabra;
 import com.cristiansantos.AhorcadoSpring.service.PalabraService;
 import org.springframework.http.HttpStatus;
@@ -10,6 +11,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api/palabras")
 public class PalabraController {
+
     private final PalabraService palabraService;
 
     public PalabraController(PalabraService palabraService) {
@@ -29,12 +31,12 @@ public class PalabraController {
     }
 
     @PostMapping
-    public ResponseEntity<Palabra> createPalabra(@RequestBody Palabra palabra) {
+    public ResponseEntity<?> createPalabra(@RequestBody Palabra palabra) {
         Palabra savedPalabra = palabraService.savePalabra(palabra);
         if (savedPalabra != null) {
             return new ResponseEntity<>(savedPalabra, HttpStatus.CREATED);
         } else {
-            return ResponseEntity.status(HttpStatus.CONFLICT).build();
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("Esa palabra ya existe");
         }
     }
 

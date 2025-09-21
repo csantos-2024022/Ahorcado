@@ -18,13 +18,14 @@ const mensajeDisplay = document.getElementById("mensaje");
 const botonesTeclado = document.querySelectorAll(".keyboard .key");
 const btnIniciar = document.getElementById("btnIniciar");
 const btnReiniciar = document.getElementById("btnReiniciar");
-const btnPausar = document.getElementById("btnPausar");
+const btnReanudar = document.getElementById("btnReanudar"); 
+const btnDetener = document.getElementById("btnReiniciar"); 
+
 const imagenAhorcadoElem = document.getElementById("imagenAhorcado") || document.querySelector(".ImagenReferencia img");
 const modalOverlay = document.getElementById("modal-resultado");
 const modalTitulo = document.getElementById("modal-titulo");
 const modalMensaje = document.getElementById("modal-mensaje");
 const closeButton = document.querySelector("#modal-resultado .close-button");
-
 
 const imagenesAhorcado = [
     "img/ahorcado.png",
@@ -36,6 +37,7 @@ const imagenesAhorcado = [
     "img/pierna2.png"
 ];
 
+
 async function cargarPalabrasDesdeDB() {
     try {
         const response = await fetch('ObtenerPalabras');
@@ -43,34 +45,15 @@ async function cargarPalabrasDesdeDB() {
             throw new Error('Error al cargar las palabras desde el servidor');
         }
         const data = await response.json();
-        palabras = data; 
+        palabras = data;
         mostrarMensaje("Listo para jugar!", "success");
         if(btnIniciar) btnIniciar.disabled = false;
-
     } catch (error) {
         console.error('Error:', error);
-        mostrarMensaje("Error", "error");
+        mostrarMensaje("Error al cargar palabras. Intenta recargar la página.", "error");
         if(btnIniciar) btnIniciar.disabled = true;
     }
 }
-
-document.addEventListener("DOMContentLoaded", () => {
-    cargarPalabrasDesdeDB();
-    reiniciarJuego();
-});
-
-if (btnIniciar) btnIniciar.addEventListener("click", iniciarJuego);
-if (btnReiniciar) btnReiniciar.addEventListener("click", reiniciarJuego);
-if (btnPausar) btnPausar.addEventListener("click", togglePausa);
-
-botonesTeclado.forEach(boton => {
-    boton.addEventListener("click", () => {
-        const letra = boton.textContent.trim().toUpperCase();
-        if (juegoIniciado && !juegoPausado && letra) {
-            manejarClickLetra(letra);
-        }
-    });
-});
 
 function iniciarJuego() {
     if (juegoIniciado || palabras.length === 0) return;
@@ -95,94 +78,7 @@ function iniciarJuego() {
     if (imagenAhorcadoElem) imagenAhorcadoElem.src = imagenesAhorcado[0];
 
     habilitarTeclado();
-    mostrarMensaje("Juego iniciado! Adivina la palabra letra por letra", "info");
-}
-
-function togglePausa() {
-    if (!juegoIniciado) return;
-    
-    if (juegoPausado) {
-        juegoPausado = false;
-        tiempoInicio = Date.now() - tiempoPausado; // Ajustar el tiempo de inicio
-        iniciarCronometro();
-        habilitarTeclado();
-        mostrarMensaje("Juego reanudado! Continúa adivinando", "info");
-    } else {
-        juegoPausado = true;
-        tiempoPausado = Date.now() - tiempoInicio; 
-        pararCronometro();
-        deshabilitarTeclado();
-        mostrarMensaje("Juego pausado Presiona REANUDAR para continuar", "info");
-    }
-    
-    actualizarBotones();
-}
-
-function manejarClickLetra(letra) {
-    letra = letra.toUpperCase();
-
-    if (!juegoIniciado || juegoPausado || letrasUsadas.includes(letra)) {
-        return;
-    }
-
-    letrasUsadas.push(letra);
-    const boton = Array.from(botonesTeclado).find(b => b.textContent.trim().toUpperCase() === letra);
-    if (boton) {
-        boton.disabled = true;
-        boton.classList.add("used");
-    }
-    actualizarLetrasUsadas();
-
-    let letraEncontrada = false;
-    let nuevaPalabraOculta = "";
-
-    for (let i = 0; i < palabraActual.length; i++) {
-        if (palabraActual[i] === letra) {
-            nuevaPalabraOculta += letra;
-            letraEncontrada = true;
-        } else {
-            nuevaPalabraOculta += palabraOculta[i];
-        }
-    }
-
-    palabraOculta = nuevaPalabraOculta;
-
-    if (!letraEncontrada) {
-        intentos--;
-        actualizarImagenAhorcado();
-        mostrarMensaje(`La letra "${letra}" no está en la palabra. Intentos restantes: ${intentos}`, "error");
-    } else {
-        mostrarMensaje(`Correcto! La letra "${letra}" se encontró.`, "success");
-    }
-
-    actualizarPantalla();
-
-    if (palabraOculta === palabraActual) {
-        victoria();
-    } else if (intentos <= 0) {
-        derrota();
-    }
-}
-
-function victoria() {
-    juegoIniciado = false;
-    juegoPausado = false;
-    pararCronometro();
-    deshabilitarTeclado();
-    actualizarBotones();
-    mostrarMensaje(`¡Ganaste! La palabra era "${palabraActual}"`, "success");
-    mostrarModal("¡GANASTE !!!!!!!", "¡Felicidades adivinaste!", "win");
-}
-
-function derrota() {
-    juegoIniciado = false;
-    juegoPausado = false;
-    pararCronometro();
-    deshabilitarTeclado();
-    actualizarBotones();
-    if (imagenAhorcadoElem) imagenAhorcadoElem.src = imagenesAhorcado[imagenesAhorcado.length - 1];
-    mostrarMensaje(`Perdiste La palabra era "${palabraActual}"`, "error");
-    mostrarModal("PERDISTE =( :(", `La palabra era "${palabraActual}". iintentalo denuevo!`, "lose");
+    mostrarMensaje("Juego iniciado!!! Adivina la palabra letra por letra", "info");
 }
 
 function reiniciarJuego() {
@@ -208,42 +104,128 @@ function reiniciarJuego() {
     if (imagenAhorcadoElem) imagenAhorcadoElem.src = imagenesAhorcado[0];
 }
 
-function deshabilitarTeclado() {
-    botonesTeclado.forEach(boton => boton.disabled = true);
+function togglePausa() {
+    if (!juegoIniciado) return;
+    
+    juegoPausado = !juegoPausado;
+    
+    if (juegoPausado) {
+        tiempoPausado = Date.now() - tiempoInicio; 
+        pararCronometro();
+        deshabilitarTeclado(true); 
+        mostrarMensaje("Juego pausado Presiona REANUDAR para continuar", "info");
+    } else {
+        tiempoInicio = Date.now() - tiempoPausado;
+        iniciarCronometro();
+        habilitarTeclado();
+        mostrarMensaje("Juego reanudado!!! continua adivinando", "info");
+    }
+    actualizarBotones();
+}
+
+function manejarClickLetra(letra, boton) {
+    if (!juegoIniciado || juegoPausado || letrasUsadas.includes(letra)) {
+        return;
+    }
+
+    letrasUsadas.push(letra);
+    
+    let letraEncontrada = false;
+    let nuevaPalabraOculta = "";
+
+    for (let i = 0; i < palabraActual.length; i++) {
+        if (palabraActual[i] === letra) {
+            nuevaPalabraOculta += letra;
+            letraEncontrada = true;
+        } else {
+            nuevaPalabraOculta += palabraOculta[i];
+        }
+    }
+
+    palabraOculta = nuevaPalabraOculta;
+
+    if (boton) {
+        boton.classList.add("used");
+        if (letraEncontrada) {
+            boton.classList.add("correct");
+        } else {
+            boton.classList.add("incorrect");
+        }
+        boton.disabled = true;
+    }
+
+    if (!letraEncontrada) {
+        intentos--;
+        actualizarImagenAhorcado();
+        mostrarMensaje(`La letra "${letra}" no está en la palabra Intentos restantes: ${intentos}`, "error");
+    } else {
+        mostrarMensaje(`Correcto! La letra "${letra}" se encontro`, "success");
+    }
+
+    actualizarPantalla();
+
+    if (palabraOculta === palabraActual) {
+        victoria();
+    } else if (intentos <= 0) {
+        derrota();
+    }
+}
+
+function victoria() {
+    juegoIniciado = false;
+    juegoPausado = false;
+    pararCronometro();
+    deshabilitarTeclado();
+    actualizarBotones();
+    mostrarMensaje(`Ganaste! La palabra era "${palabraActual}"`, "success");
+    mostrarModal("GANASTE!", "adivinaste!!!!", "win");
+}
+
+function derrota() {
+    juegoIniciado = false;
+    juegoPausado = false;
+    pararCronometro();
+    deshabilitarTeclado();
+    actualizarBotones();
+    if (imagenAhorcadoElem) imagenAhorcadoElem.src = imagenesAhorcado[imagenesAhorcado.length - 1];
+    mostrarMensaje(`Perdiste La palabra era "${palabraActual}".`, "error");
+    mostrarModal("PERDISTE =(", `La palabra era "${palabraActual}". Intentalo de nuevo!!!`, "lose");
+}
+
+
+function deshabilitarTeclado(soloSiEstaPausado = false) {
+    botonesTeclado.forEach(boton => {
+        if (soloSiEstaPausado) {
+            boton.disabled = true;
+        } else if (!boton.classList.contains('used')) {
+            boton.disabled = true;
+        }
+    });
 }
 
 function habilitarTeclado() {
     botonesTeclado.forEach(boton => {
         boton.disabled = false;
-        boton.classList.remove("used");
+        boton.classList.remove("used", "correct", "incorrect");
     });
 }
 
 function actualizarPantalla() {
     palabraDisplay.textContent = palabraOculta.split("").join(" ");
     intentosDisplay.textContent = intentos;
-    actualizarLetrasUsadas();
 }
 
 function actualizarBotones() {
     if (btnIniciar) {
         btnIniciar.style.display = juegoIniciado ? "none" : "inline-block";
     }
-    
-    if (btnPausar) {
-        btnPausar.style.display = juegoIniciado ? "inline-block" : "none";
-        btnPausar.textContent = juegoPausado ? "⏵️ Reanudar" : "⏸️ Pausar";
-        btnPausar.className = juegoPausado ? "btn-secondary btn-resume" : "btn-secondary btn-pause";
+    if (btnReiniciar) {
+        btnReiniciar.style.display = juegoIniciado ? "inline-block" : "none";
     }
-}
-
-function actualizarLetrasUsadas() {
-    letrasUsadasDisplay.innerHTML = "";
-    letrasUsadas.forEach(letra => {
-        const span = document.createElement("span");
-        span.textContent = letra;
-        letrasUsadasDisplay.appendChild(span);
-    });
+    if (btnReanudar) {
+        btnReanudar.style.display = juegoIniciado ? "inline-block" : "none";
+        btnReanudar.textContent = juegoPausado ? "Reanudar" : "Pausar";
+    }
 }
 
 function mostrarMensaje(texto, tipo) {
@@ -266,7 +248,7 @@ function iniciarCronometro() {
     if (cronometro) clearInterval(cronometro);
     
     cronometro = setInterval(() => {
-        if (juegoPausado) return; 
+        if (juegoPausado) return;
         
         const ahora = Date.now();
         const diff = Math.floor((ahora - tiempoInicio) / 1000);
@@ -290,16 +272,32 @@ function mostrarModal(titulo, mensaje, tipo) {
     }
     if (modalMensaje) modalMensaje.textContent = mensaje;
 
-    // Muestra el overlay
     if (modalOverlay) modalOverlay.style.display = "flex";
 }
 
-// Función para ocultar el modal
 function ocultarModal() {
     if (modalOverlay) modalOverlay.style.display = "none";
 }
 
-// Evento para cerrar el modal al hacer clic en la "X"
+
+document.addEventListener("DOMContentLoaded", () => {
+    cargarPalabrasDesdeDB();
+    reiniciarJuego();
+});
+
+if (btnIniciar) btnIniciar.addEventListener("click", iniciarJuego);
+if (btnReiniciar) btnReiniciar.addEventListener("click", reiniciarJuego);
+if (btnReanudar) btnReanudar.addEventListener("click", togglePausa);
+
+botonesTeclado.forEach(boton => {
+    boton.addEventListener("click", () => {
+        const letra = boton.textContent.trim().toUpperCase();
+        if (juegoIniciado && !juegoPausado && letra) {
+            manejarClickLetra(letra, boton);
+        }
+    });
+});
+
 if (closeButton) {
     closeButton.addEventListener("click", ocultarModal);
 }

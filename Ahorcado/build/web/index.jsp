@@ -3,10 +3,24 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Ahorcado - Iniciar sesión</title>
         <link rel="stylesheet" href="css/inicio.css">
+        <script src="js/efectos-login.js" defer></script>
     </head>
     <body>
+        <!-- Elementos geométricos flotantes para efectos visuales -->
+        <div class="geometric-shape"></div>
+        <div class="geometric-shape"></div>
+        <div class="geometric-shape"></div>
+        <div class="geometric-shape"></div>
+        <div class="geometric-shape"></div>
+        <div class="geometric-shape"></div>
+        <div class="geometric-shape"></div>
+        <div class="geometric-shape"></div>
+        
+        
+        <!-- Contenedor principal del login -->
         <div class="login-container">
             <div class="card">
                 <div class="card-header">
