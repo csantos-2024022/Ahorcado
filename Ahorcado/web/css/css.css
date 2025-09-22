@@ -69,9 +69,7 @@ body::before {
     50% { transform: translateY(-20px) rotate(180deg); }
 }
 
-/* -------------------------------------------------------------------------- */
-/* CONTENEDORES PRINCIPALES                      */
-/* -------------------------------------------------------------------------- */
+
 .game-wrapper {
     display: grid;
     grid-template-columns: 1fr 400px;
@@ -124,9 +122,7 @@ body::before {
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.1);
 }
 
-/* -------------------------------------------------------------------------- */
-/* TÍTULOS Y TEXTOS                              */
-/* -------------------------------------------------------------------------- */
+
 h1 {
     font-family: var(--font-digital);
     font-size: 4rem;
@@ -506,9 +502,7 @@ h1 {
     background: rgba(255, 255, 255, 0.25);
 }
 
-/* -------------------------------------------------------------------------- */
-/* MENSAJES DE ESTADO                            */
-/* -------------------------------------------------------------------------- */
+
 .message {
     margin-top: 2rem;
     padding: 1.5rem;
@@ -557,9 +551,7 @@ h1 {
     box-shadow: 0 10px 25px rgba(79, 172, 254, 0.3);
 }
 
-/* -------------------------------------------------------------------------- */
-/* IMAGEN DE REFERENCIA                          */
-/* -------------------------------------------------------------------------- */
+
 .image-container {
     background: var(--glass-bg);
     backdrop-filter: blur(25px) saturate(200%);
@@ -612,9 +604,7 @@ h1 {
     filter: drop-shadow(0 0 30px rgba(240, 147, 251, 0.5));
 }
 
-/* -------------------------------------------------------------------------- */
-/* RESPONSIVE DESIGN                             */
-/* -------------------------------------------------------------------------- */
+
 @media (max-width: 1024px) {
     .game-wrapper {
         grid-template-columns: 1fr;
@@ -695,9 +685,7 @@ h1 {
     }
 }
 
-/* -------------------------------------------------------------------------- */
-/* TECLADO MEJORADO                              */
-/* -------------------------------------------------------------------------- */
+
 .keyboard {
     margin: 2rem 0;
     display: flex;
@@ -732,23 +720,20 @@ h1 {
     overflow: hidden;
 }
 
-/* Efecto hover */
 .key:not(.disabled):hover {
     transform: translateY(-8px) scale(1.1);
     box-shadow: 0 10px 25px rgba(79, 172, 254, 0.4);
     color: white;
 }
 
-/* Estado de deshabilitado (cuando ya fue usada) */
 .key.disabled {
     cursor: not-allowed;
-    background: rgba(255, 255, 255, 0.1); /* Fondo más claro para indicar inactividad */
+    background: rgba(255, 255, 255, 0.1); 
     color: rgba(255, 255, 255, 0.5);
     box-shadow: none;
     transform: none;
 }
 
-/* Cuando se usa una tecla, este estilo es el primero en aplicarse */
 .key.used {
     background: rgba(255, 255, 255, 0.2); 
     color: var(--text-secondary);

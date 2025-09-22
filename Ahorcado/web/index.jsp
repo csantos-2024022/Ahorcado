@@ -9,7 +9,6 @@
         <script src="js/efectos-login.js" defer></script>
     </head>
     <body>
-        <!-- Elementos geométricos flotantes para efectos visuales -->
         <div class="geometric-shape"></div>
         <div class="geometric-shape"></div>
         <div class="geometric-shape"></div>
@@ -20,7 +19,6 @@
         <div class="geometric-shape"></div>
         
         
-        <!-- Contenedor principal del login -->
         <div class="login-container">
             <div class="card">
                 <div class="card-header">

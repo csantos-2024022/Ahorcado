@@ -58,11 +58,10 @@
                 </div>
 
                 <div>
-                    <button class="btn-secondary" onclick="iniciarJuego()" id="btnIniciar">iniciar</button>
-                    <button class="btn-secondary" onclick="reiniciarJuego()" id="btnReiniciar">reiniciar</button>
-                    <button class="btn-secondary" onclick="togglePausa()" id="btnReanudar">Reanudar</button>
-                    <button class="btn-secondary" onclick="pararCronometro()" id="btnReiniciar">Detener</button>
-                </div>
+                    <button class="btn-secondary" id="btnIniciar">iniciar</button>
+                    <button class="btn-secondary" id="btnReiniciar">reiniciar</button>
+                    <button class="btn-secondary" id="btnPausar">Pausar</button>
+                </div>
 
                 <div class="used-letters">
                     <strong>Letras usadas:</strong>
