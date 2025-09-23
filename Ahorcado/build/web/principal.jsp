@@ -58,9 +58,16 @@
                 </div>
 
                 <div>
+<<<<<<< HEAD
                     <button class="btn-secondary" onclick="iniciarJuego()" id="btnIniciar">iniciar</button>
                     <button class="btn-secondary" onclick="reiniciarJuego()" id="btnReiniciar">reiniciar</button>
                 </div>
+=======
+                    <button class="btn-secondary" id="btnIniciar">iniciar</button>
+                    <button class="btn-secondary" id="btnReiniciar">reiniciar</button>
+                    <button class="btn-secondary" id="btnPausar">Pausar</button>
+                </div>
+>>>>>>> origin/develop
 
                 <div class="used-letters">
                     <strong>Letras usadas:</strong>
@@ -74,9 +81,23 @@
                 <p>No dejes que muera! HJWKQKJHKSJ</p>
                 <img src="img/ahorcado.png" alt="Imagen de referencia">
             </div>
+<<<<<<< HEAD
         </div>
         <div> 
             <a href="Controlador?menu=Palabras" class="btn-secondary">Palabras</a>
+=======
+                <div id="modal-resultado" class="modal-overlay">
+                   <div class="modal">
+                        <span class="close-button">&times;</span>
+                        <div class="modal-content">
+                            <h2 id="modal-titulo"></h2>
+                            <p id="modal-mensaje"></p>
+                            <img id="modal-imagen" src="" alt="Resultado del juego"></div>
+                    </div>
+                </div>
+        </div>
+        <div> 
+>>>>>>> origin/develop
             </div>
         
         <script src="js/script.js"></script>

@@ -12,7 +12,11 @@ public class Conexion {
     public Connection Conexion(){
         try {
           Class.forName("com.mysql.jdbc.Driver");
+<<<<<<< HEAD
           String url = "jdbc:mysql://localhost:3306/DBAhorcado?useSSL=false&allowPublicKeyRetrieval=true";
+=======
+          String url = "jdbc:mysql://localhost:3306/DB_Ahorcado?useSSL=false&allowPublicKeyRetrieval=true";
+>>>>>>> origin/develop
           String user = "root";
           String password = "admin";
           conexion = (Connection) DriverManager.getConnection(url, user, password);
