@@ -10,6 +10,10 @@ let tiempoTranscurrido = 0;
 let cronometro = null;
 let pistaActual = "";
 const TIEMPO_MAXIMO = 240; 
+const imagenVictoriaSrc = "img/imagenVictoria.png"; 
+const imagenDerrotaSrc = "img/imagenDerrota.png"; 
+
+
 
 const palabraDisplay = document.getElementById("palabra");
 const intentosDisplay = document.getElementById("intentos");
@@ -23,10 +27,13 @@ const btnPausar = document.getElementById("btnPausar");
 const cronometroDisplay = document.getElementById("cronometro");
 
 const imagenAhorcadoElem = document.getElementById("imagenAhorcado") || document.querySelector(".ImagenReferencia img");
+
 const modalOverlay = document.getElementById("modal-resultado");
 const modalTitulo = document.getElementById("modal-titulo");
 const modalMensaje = document.getElementById("modal-mensaje");
+const modalImagen = document.getElementById("modal-imagen"); 
 const closeButton = document.querySelector("#modal-resultado .close-button");
+
 
 const imagenesAhorcado = [
     "img/ahorcado.png",
@@ -168,24 +175,24 @@ function manejarClickLetra(letra, boton) {
 }
 
 function victoria() {
-    juegoIniciado = false;
-    juegoPausado = false;
-    pararCronometro();
-    deshabilitarTeclado();
-    actualizarBotones();
-    mostrarMensaje(`¡Ganaste! La palabra era "${palabraActual}"`, "success");
-    mostrarModal("GANASTE!", "adivinaste!", "win");
+    juegoIniciado = false;
+    juegoPausado = false;
+    pararCronometro();
+    deshabilitarTeclado();
+    actualizarBotones();
+    mostrarMensaje(`Ganaste! La palabra era "${palabraActual}"`, "success");
+    mostrarModal("GANASTE!", "adivinaste!", "win", imagenVictoriaSrc);
 }
 
-function derrota(motivo = "Se acabó el tiempo =(") {
-    juegoIniciado = false;
-    juegoPausado = false;
-    pararCronometro();
-    deshabilitarTeclado();
-    actualizarBotones();
-    if (imagenAhorcadoElem) imagenAhorcadoElem.src = imagenesAhorcado[imagenesAhorcado.length - 1];
-    mostrarMensaje(`Perdiste La palabra era "${palabraActual}". ${motivo}`, "error");
-    mostrarModal("PERDISTE =(", `La palabra era "${palabraActual}". Intentalo de nuevo!`, "lose");
+function derrota(motivo = "Se acabó el tiempo.") {
+    juegoIniciado = false;
+    juegoPausado = false;
+    pararCronometro();
+    deshabilitarTeclado();
+    actualizarBotones();
+    if (imagenAhorcadoElem) imagenAhorcadoElem.src = imagenesAhorcado[imagenesAhorcado.length - 1];
+    mostrarMensaje(`Perdiste La palabra era "${palabraActual}". ${motivo}`, "error");
+    mostrarModal("PERDISTE =( :(", `La palabra era "${palabraActual}". ¡Inténtalo de nuevo!`, "lose", imagenDerrotaSrc);
 }
 
 function deshabilitarTeclado(soloSiEstaPausado = false) {
@@ -268,19 +275,21 @@ function pararCronometro() {
     }
 }
 
-function mostrarModal(titulo, mensaje, tipo) {
-    if (modalTitulo) {
-        modalTitulo.textContent = titulo;
-        modalTitulo.className = (tipo === "win") ? "win" : "lose";
-    }
-    if (modalMensaje) modalMensaje.textContent = mensaje;
+function mostrarModal(titulo, mensaje, tipo, imagenSrc) {
+    if (modalTitulo) {
+        modalTitulo.textContent = titulo;
+        modalTitulo.className = (tipo === "win") ? "win" : "lose";
+    }
+    if (modalMensaje) modalMensaje.textContent = mensaje;
+    
+    if (modalImagen) {
+        modalImagen.src = imagenSrc;
+        modalImagen.style.display = "block"; 
+    }
 
-    if (modalOverlay) modalOverlay.style.display = "flex";
+    if (modalOverlay) modalOverlay.style.display = "flex";
 }
 
-function ocultarModal() {
-    if (modalOverlay) modalOverlay.style.display = "none";
-}
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -300,6 +309,11 @@ botonesTeclado.forEach(boton => {
         }
     });
 });
+function ocultarModal() {
+    if (modalOverlay) {
+        modalOverlay.style.display = "none";
+    }
+}
 
 if (closeButton) {
     closeButton.addEventListener("click", ocultarModal);
