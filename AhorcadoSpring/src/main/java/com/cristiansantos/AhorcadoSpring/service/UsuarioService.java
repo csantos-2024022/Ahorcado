@@ -5,9 +5,13 @@ import java.util.List;
 import java.util.Optional;
 
 public interface UsuarioService {
+
     List<Usuario> getAllUsuarios();
-    Optional<Usuario> getUsuarioByCodigo(Integer codigoUsuario);
+
+    Optional<Usuario> getUsuarioByCodigo(Long codigoUsuario);
+
     Usuario saveUsuario(Usuario usuario);
-    Usuario updateUsuario(Integer codigoUsuario, Usuario usuario);
-    void deleteUsuario(Integer codigoUsuario);
+
+    Usuario updateUsuario(Long codigoUsuario, Usuario usuario);
+    boolean deleteUsuario(Long codigoUsuario);
 }

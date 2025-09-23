@@ -55,6 +55,6 @@ public class PalabraController {
         if (deleted) {
             return ResponseEntity.ok("Registro eliminado correctamente.");
         }
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No se puede eliminar porque el registro no fue encontrado.");
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No se puede eliminar porque el registro no se encontro");
     }
 }

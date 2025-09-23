@@ -34,14 +34,13 @@ public class PalabraServiceImpl implements PalabraService {
     @Override
     public Palabra savePalabra(Palabra palabra) {
         if (palabra == null || palabra.getPalabra() == null || palabra.getPalabra().trim().isEmpty()) {
-            System.out.println("Error: La palabra no puede ser nula o vacía.");
+            System.out.println(" La palabra no puede estar vacía");
             return null;
         }
 
-        // Verifica si la palabra ya existe antes de guardarla
         if (!validacionPalabra.palabraNoExiste(palabra.getPalabra())) {
-            System.out.println("Error: La palabra '" + palabra.getPalabra() + "' ya existe.");
-            return null; // Devuelve null si la palabra ya existe
+            System.out.println(" La palabra '" + palabra.getPalabra() + "' ya existe");
+            return null;
         }
 
         palabra.setPalabra(palabra.getPalabra().toUpperCase());

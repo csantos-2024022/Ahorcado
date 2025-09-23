@@ -1,36 +1,35 @@
-    package com.cristiansantos.AhorcadoSpring.model;
+package com.cristiansantos.AhorcadoSpring.model;
 
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "Usuarios")
+@Table(name = "usuarios")
 public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "codigoUsuario")
-    private Integer codigoUsuario;
+    private Long codigoUsuario;
 
-    @Column(name = "nombre")
+    @Column(name = "nombre", nullable = false, unique = true)
     private String nombre;
 
-    @Column(name = "pass")
+    @Column(name = "pass", nullable = false)
     private String pass;
 
     public Usuario() {
     }
 
-    public Usuario(Integer codigoUsuario, String nombre, String pass) {
-        this.codigoUsuario = codigoUsuario;
+    public Usuario(String nombre, String pass) {
         this.nombre = nombre;
         this.pass = pass;
     }
 
-    public Integer getCodigoUsuario() {
+    // Getters y Setters
+    public Long getCodigoUsuario() {
         return codigoUsuario;
     }
 
-    public void setCodigoUsuario(Integer codigoUsuario) {
+    public void setCodigoUsuario(Long codigoUsuario) {
         this.codigoUsuario = codigoUsuario;
     }
 

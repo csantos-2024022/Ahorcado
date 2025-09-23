@@ -75,15 +75,15 @@
                 <p>No dejes que muera! HJWKQKJHKSJ</p>
                 <img src="img/ahorcado.png" alt="Imagen de referencia">
             </div>
-            <div id="modal-resultado" class="modal-overlay">
-             <div class="modal">
-        <span class="close-button">&times;</span>
-        <div class="modal-content">
-            <h2 id="modal-titulo"></h2>
-            <p id="modal-mensaje"></p>
-                 </div>
-    </div>
-</div>
+                <div id="modal-resultado" class="modal-overlay">
+                   <div class="modal">
+                        <span class="close-button">&times;</span>
+                        <div class="modal-content">
+                            <h2 id="modal-titulo"></h2>
+                            <p id="modal-mensaje"></p>
+                            <img id="modal-imagen" src="" alt="Resultado del juego"></div>
+                    </div>
+                </div>
         </div>
         <div> 
             </div>
