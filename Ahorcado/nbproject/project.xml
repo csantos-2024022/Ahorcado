@@ -8,11 +8,7 @@
             <explicit-platform explicit-source-supported="true"/>
             <web-module-libraries>
                 <library dirs="200">
-<<<<<<< HEAD
-                    <file>${file.reference.mysql-connector-java-5.1.47-bin.jar}</file>
-=======
                     <file>${file.reference.mysql-connector-java-5.1.47-bin.jar-1}</file>
->>>>>>> origin/develop
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
             </web-module-libraries>
