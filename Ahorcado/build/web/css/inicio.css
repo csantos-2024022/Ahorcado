@@ -1,96 +1,5 @@
-<<<<<<< HEAD
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
-:root {
-    --primary-color: #7957d5;
-    --secondary-color: #b3a5e1;
-    --accent-color: #9c88ff;
-    --bg-color: #f0f4f8;
-    --text-color: #333;
-    --card-bg: rgba(255, 255, 255, 0.95);
-    --shadow-color: rgba(121, 87, 213, 0.15);
-    --border-color: #e0e0e0;
-}
-
-body {
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: var(--text-color);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    margin: 0;
-    overflow: hidden;
-    position: relative;
-}
-
-/* Fondo animado con formas geométricas */
-body::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: 
-        radial-gradient(circle at 20% 80%, rgba(121, 87, 213, 0.3) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(179, 165, 225, 0.3) 0%, transparent 50%),
-        radial-gradient(circle at 40% 40%, rgba(156, 136, 255, 0.2) 0%, transparent 50%);
-    animation: backgroundShift 20s ease-in-out infinite;
-}
-
-@keyframes backgroundShift {
-    0%, 100% { 
-        background: 
-            radial-gradient(circle at 20% 80%, rgba(121, 87, 213, 0.3) 0%, transparent 50%),
-            radial-gradient(circle at 80% 20%, rgba(179, 165, 225, 0.3) 0%, transparent 50%),
-            radial-gradient(circle at 40% 40%, rgba(156, 136, 255, 0.2) 0%, transparent 50%);
-    }
-    50% { 
-        background: 
-            radial-gradient(circle at 80% 20%, rgba(121, 87, 213, 0.3) 0%, transparent 50%),
-            radial-gradient(circle at 20% 80%, rgba(179, 165, 225, 0.3) 0%, transparent 50%),
-            radial-gradient(circle at 60% 60%, rgba(156, 136, 255, 0.2) 0%, transparent 50%);
-    }
-}
-
-/* Elementos geométricos flotantes */
-.geometric-shape {
-    position: absolute;
-    opacity: 0.1;
-    animation: float 6s ease-in-out infinite;
-}
-
-.geometric-shape:nth-child(1) {
-    top: 10%;
-    left: 10%;
-    width: 60px;
-    height: 60px;
-    background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
-    border-radius: 50%;
-    animation-delay: 0s;
-}
-
-.geometric-shape:nth-child(2) {
-    top: 20%;
-    right: 20%;
-    width: 80px;
-    height: 80px;
-    background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
-    border-radius: 20px;
-    animation-delay: 2s;
-}
-
-.geometric-shape:nth-child(3) {
-    bottom: 20%;
-    left: 15%;
-    width: 100px;
-    height: 100px;
-    background: linear-gradient(225deg, var(--accent-color), var(--secondary-color));
-    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-    animation-delay: 4s;
-=======
 /* Variables CSS para un diseño limpio y profesional */
 :root {
   --primary-color: #7957d5;
@@ -119,7 +28,7 @@ html {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  font-family: 'Poppins', sans-serif;
   line-height: 1.6;
   background: linear-gradient(135deg, #667eea, #764ba2);
   color: var(--text-primary);
@@ -131,6 +40,36 @@ body {
   position: relative;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Fondo animado con formas geométricas */
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(circle at 20% 80%, rgba(121, 87, 213, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(179, 165, 225, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(156, 136, 255, 0.2) 0%, transparent 50%);
+  animation: backgroundShift 20s ease-in-out infinite;
+}
+
+@keyframes backgroundShift {
+  0%, 100% {
+    background:
+      radial-gradient(circle at 20% 80%, rgba(121, 87, 213, 0.3) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(179, 165, 225, 0.3) 0%, transparent 50%),
+      radial-gradient(circle at 40% 40%, rgba(156, 136, 255, 0.2) 0%, transparent 50%);
+  }
+  50% {
+    background:
+      radial-gradient(circle at 80% 20%, rgba(121, 87, 213, 0.3) 0%, transparent 50%),
+      radial-gradient(circle at 20% 80%, rgba(179, 165, 225, 0.3) 0%, transparent 50%),
+      radial-gradient(circle at 60% 60%, rgba(156, 136, 255, 0.2) 0%, transparent 50%);
+  }
 }
 
 /* Figuras geométricas flotantes */
@@ -171,260 +110,38 @@ body {
   background-color: var(--accent-color);
   clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
   animation-delay: 6s;
->>>>>>> origin/develop
 }
 
 .geometric-shape:nth-child(4) {
-    bottom: 15%;
-<<<<<<< HEAD
-    right: 10%;
-    width: 70px;
-    height: 70px;
-    background: linear-gradient(315deg, var(--primary-color), var(--secondary-color));
-    border-radius: 50%;
-    animation-delay: 1s;
-}
-
-@keyframes float {
-    0%, 100% { 
-        transform: translateY(0px) rotate(0deg);
-        opacity: 0.1;
-    }
-    50% { 
-        transform: translateY(-20px) rotate(180deg);
-        opacity: 0.2;
-    }
-}
-
-.login-container {
-    width: 100%;
-    max-width: 420px;
-    padding: 20px;
-    box-sizing: border-box;
-    z-index: 10;
-    position: relative;
-}
-
-.card {
-    background: var(--card-bg);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 24px;
-    box-shadow: 
-        0 20px 40px var(--shadow-color),
-        0 0 80px rgba(121, 87, 213, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.3);
-    padding: 45px;
-    text-align: center;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    position: relative;
-    overflow: hidden;
-}
-
-.card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-    transition: left 0.6s;
-}
-
-.card:hover::before {
-    left: 100%;
-}
-
-.card:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 
-        0 25px 50px rgba(121, 87, 213, 0.2),
-        0 0 100px rgba(121, 87, 213, 0.15),
-        inset 0 1px 0 rgba(255, 255, 255, 0.4);
-}
-
-.card-header h1 {
-    font-size: 2.2rem;
-    margin-bottom: 8px;
-    color: var(--primary-color);
-    font-weight: 700;
-    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 0 2px 4px rgba(121, 87, 213, 0.1);
-}
-
-.card-header p {
-    font-size: 0.95rem;
-    color: #666;
-    margin-bottom: 30px;
-    opacity: 0.8;
-}
-
-.form-group {
-    text-align: left;
-    margin-bottom: 24px;
-    position: relative;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 600;
-    color: #555;
-    font-size: 0.9rem;
-}
-
-.form-group input {
-    width: 100%;
-    padding: 16px;
-    border: 2px solid rgba(224, 224, 224, 0.5);
-    border-radius: 12px;
-    font-size: 1rem;
-    box-sizing: border-box;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(10px);
-}
-
-.form-group input:focus {
-    outline: none;
-    border-color: var(--primary-color);
-    background: rgba(255, 255, 255, 0.95);
-    box-shadow: 
-        0 0 0 4px rgba(121, 87, 213, 0.15),
-        0 4px 12px rgba(121, 87, 213, 0.1);
-    transform: translateY(-2px);
-}
-
-.btn-start {
-    width: 100%;
-    padding: 18px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #fff;
-    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 8px 20px rgba(121, 87, 213, 0.3);
-}
-
-.btn-start::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: left 0.5s;
-}
-
-.btn-start:hover::before {
-    left: 100%;
-}
-
-.btn-start:hover {
-    background: linear-gradient(135deg, #6a44c7, #8a6bff);
-    transform: translateY(-3px);
-    box-shadow: 0 12px 30px rgba(121, 87, 213, 0.4);
-}
-
-.btn-start:active {
-    transform: translateY(-1px);
-    box-shadow: 0 6px 15px rgba(121, 87, 213, 0.4);
-}
-
-.signup-text {
-    margin-top: 25px;
-    font-size: 0.9rem;
-    color: #888;
-}
-
-.signup-text a {
-    color: var(--primary-color);
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    position: relative;
-}
-
-.signup-text a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: -2px;
-    left: 0;
-    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-    transition: width 0.3s ease;
-}
-
-.signup-text a:hover::after {
-    width: 100%;
-}
-
-.signup-text a:hover {
-    color: var(--accent-color);
-}
-
-/* Responsive para móviles */
-@media (max-width: 480px) {
-    .login-container {
-        max-width: 350px;
-        padding: 15px;
-    }
-    
-    .card {
-        padding: 35px;
-        border-radius: 20px;
-    }
-    
-    .card-header h1 {
-        font-size: 1.9rem;
-    }
-    
-    .geometric-shape {
-        display: none;
-    }
-=======
-    right: 8%;
-    width: 110px;
-    height: 110px;
-    background: radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.6), transparent 50%);
-    background-color: var(--primary-color);
-    border-radius: 50%;
-    animation-delay: 2s;
-    box-shadow: 0 0 80px rgba(196, 181, 253, 0.5);
+  bottom: 15%;
+  right: 8%;
+  width: 110px;
+  height: 110px;
+  background: radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.6), transparent 50%);
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  animation-delay: 2s;
+  box-shadow: 0 0 80px rgba(196, 181, 253, 0.5);
 }
 
 .geometric-shape:nth-child(5) {
-    top: 55%;
-    left: 2%;
-    width: 90px;
-    height: 90px;
-    background-color: var(--primary-dark);
-    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
-    animation-delay: 4s;
+  top: 55%;
+  left: 2%;
+  width: 90px;
+  height: 90px;
+  background-color: var(--primary-dark);
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+  animation-delay: 4s;
 }
 
 .geometric-shape:nth-child(6) {
-    top: 65%;
-    right: 3%;
-    width: 85px;
-    height: 85px;
-    background: linear-gradient(180deg, var(--accent-color), var(--primary-color));
-    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
-    animation-delay: 7s;
+  top: 65%;
+  right: 3%;
+  width: 85px;
+  height: 85px;
+  background: linear-gradient(180deg, var(--accent-color), var(--primary-color));
+  border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+  animation-delay: 7s;
 }
 
 /* Animación de flotar y escalar */
@@ -459,6 +176,8 @@ body {
   padding: 50px;
   text-align: center;
   transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
 }
 
 /* Efecto hover sutil en la tarjeta */
@@ -466,7 +185,6 @@ body {
   transform: translateY(-5px);
   box-shadow: 0 20px 40px rgba(121, 87, 213, 0.3);
 }
-
 
 .card-header h1 {
   font-size: 2.5rem;
@@ -546,5 +264,4 @@ body {
   .geometric-shape:nth-child(n+4) {
     display: none;
   }
->>>>>>> origin/develop
 }

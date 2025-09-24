@@ -35,10 +35,6 @@ public class Validar extends HttpServlet {
             if (usuario != null && usuario.getPass() != null) {
                 HttpSession session = request.getSession();
                 session.setAttribute("usuarioLogueado", usuario);
-<<<<<<< HEAD
-                // Esta línea redirige a tu controlador principal
-=======
->>>>>>> origin/develop
                 request.getRequestDispatcher("Controlador?menu=Principal").forward(request, response);
             } else {
                 request.getRequestDispatcher("index.jsp").forward(request, response);
