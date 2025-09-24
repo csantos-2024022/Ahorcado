@@ -47,9 +47,11 @@ CALL spInsertarPalabras('LUNA', '1. Gira alrededor de la Tierra 2. Se ve de noch
 CALL spInsertarPalabras('ARBOL', '1. Da sombra 2. Produce oxígeno 3. Hecho de madera');
 CALL spInsertarPalabras('LIBRO', '1. Tiene hojas 2. Contiene historias 3. Se lee');
 CALL spInsertarPalabras('AGUA', '1. Es vital para la vida 2. Sin color ni olor 3. Se bebe');
-CALL spInsertarPalabras('TELEFONO', '1. sinonimo de movil 2. ring ring... 3. tecnologia');
+CALL spInsertarPalabras('TELEFONO', '1. sinonimo de movil 2. ring ring.... 3. tecnologia');
 CALL spInsertarPalabras('LLUVIA', '1. Cae del cielo 2. Moja las calles 3. Riegas las plantas');
 Select * from Usuarios;
+
+
 
 
 
